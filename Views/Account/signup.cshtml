@@ -1,0 +1,300 @@
+﻿@model Sannan_EAD_Shop.Models.login
+@{
+    ViewBag.Title = "signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sign Up</h2>
+
+
+
+<table>
+    <tr>
+
+    <td><a class="navbar-brand" href="~/Home/Index">Home</a><br /><br /><br /></td>
+    <td></td>
+
+    </tr>
+    <tr>
+        <td></td>
+    
+        <td><div id="loginModal"  tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h1 class="text-center">New Registration</h1>
+              </div>
+              <div >
+                  <form action="~/Account/validateSignup" method="post" enctype="multipart/form-data" class="form col-md-12 center-block">
+
+                    <div>
+                        <label for="firstname1" class="col-md-3">
+                            
+                        </label>
+                        <div class="col-md-8">
+
+                            <br />
+                        </div>
+                        <div class="col-md-1">
+                            <i class="fa fa-lock fa-2x"></i>
+                        </div>
+                    </div>    
+                      
+
+
+                    <div>
+                        <label for="username" class="col-md-3">
+                            User Name:
+                        </label>
+                        <div class="col-md-8">
+                            @Html.TextBox("username","", new {@class="form-control", name = "username" ,id="username",placeholder="Enter Username", required = "required"   })
+                            @Html.ValidationMessageFor(model => model.username)
+
+                            @*<input type="text" class="form-control" name="username" id="username" placeholder="Enter User Name" required>*@
+                            <input type="button" id="b1" value="Check" />
+                            
+
+                                    <div id="result"></div><br /> 
+
+                        </div>
+
+
+                        <div class="col-md-1">
+                            <i class="fa fa-lock fa-2x"></i>
+                        </div>
+                    </div>    
+                      
+                      <br />
+                          
+                    <div>
+                        <label for="name" class="col-md-3">
+                            Name:
+                        </label>
+                        <div class="col-md-8">
+                            @Html.TextBox("name","", new {@class="form-control", name = "name" ,id="name",placeholder="Enter Name", required = "required"   })
+                            @Html.ValidationMessageFor(model => model.name)
+
+@*                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required>*@
+                            <br />
+                        </div>
+                         <div class="col-md-1">
+                            <i class="fa fa-lock fa-2x"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="emailaddress" class="col-md-3">
+                            Email address:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter email address" required>
+                            <p class="help-block">
+                                Example: yourname@domain.com
+                            </p>
+                            <br />
+                        </div>
+
+                         <div class="col-md-1">
+                            <i class="fa fa-lock fa-2x"></i>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label for="password" class="col-md-3">
+                            Password:
+                        </label>
+                        <div class="col-md-8">
+                        
+                            @Html.Password("pwd","", new {@class="form-control",name="pwd", id="pwd",placeholder="Enter Password", required = "required"  })
+                            @Html.ValidationMessageFor(model => model.pwd)
+                            @*<input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter Password" required >*@
+                            <p class="help-block">
+                                Min: 6 characters (Alphanumeric only)
+                            </p>
+                            <br />
+                        </div>
+                         <div class="col-md-1">
+                            <i class="fa fa-lock fa-2x"></i>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <label for="sex" class="col-md-3">
+                            Gender:
+                        </label>
+                        <div class="col-md-8">
+                            <label class="radio">
+                                <input type="radio" name="gender" id="gender" value="male" checked>
+                                Male
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="gender" id="gender1" value="female">
+                                Female
+                            </label>
+                            <br />
+                        </div>             
+                    </div>
+
+                      <br />
+
+                    <div>
+                        <label for="country" class="col-md-3">
+                            Country:
+                        </label>
+                        <div class="col-md-8">
+                            <select name="country" id="country" class="form-control">
+                                <option>--Please Select--</option>
+                                <option>India</option>
+                                <option>United States</option>
+                                <option>Canada</option>
+                                <option>United Kingdom</option>
+                                <option>Others</option>
+                                
+                            </select>
+                            <br />
+                        </div>            
+                    </div>
+                      
+
+                    <div>
+                        <label for="uploadimage" class="col-md-3">
+                            Upload Image:
+                        </label>
+                        <div class="col-md-9">
+                            <input type="file" name="path" id="path">
+                            <br /><p class="help-block">
+                                Allowed formats: jpeg, jpg, gif, png
+                            </p><br />
+                        </div>          
+                    </div>
+
+
+                    <div>
+                        <label for="code" class="col-md-3">
+                            Security Code:
+                        </label>
+                        <div class="col-md-8">
+                            @Html.TextBox("code","", new {@class="form-control", name = "code" ,id="code",placeholder="Enter Code", required = "required"   })
+                            @Html.ValidationMessageFor(model => model.code)
+
+                            @*<input type="text" class="form-control" name="code" id="code" placeholder="Enter Security code" required >*@
+                            
+                            <br />
+                        </div>
+                         <div class="col-md-1">
+                            <i class="fa fa-lock fa-2x"></i>
+                        </div>
+                    </div>
+
+
+
+
+                    <div>
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-10">
+                            <label>
+                                <input type="checkbox"> I hereby accept the terms and conditions for using this site</label>
+                        </div>            
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-3">
+                            <br />
+                            <button type="submit" class="btn btn-info" name="sub1" id="sub1">
+                                Register
+                            </button>
+                        </div>
+
+                        <div class="col-md-6">
+                          <br />
+                            
+                      </div>
+
+                    </div>
+                           
+                      
+
+                  </form>
+
+              </div>
+              <div class="modal-footer">
+                  	
+              </div>
+          </div>
+          </div>
+        </div>
+            
+      
+            
+            <script>
+                </script>
+
+            <script>
+
+                $(document).ready(function () {
+                    $('#b1').click(function () {
+
+                        var username = $('#username').val();
+
+                        
+                        $.getJSON("Availability?u=" + username, function (data) {
+
+                            if (data == true) {
+
+                                $('#result').text("User already exists in database");
+                                
+                                $('#username').val("");
+                            }
+                            else {
+
+                                $('#result').text("User Name is available");
+                            }
+                        });
+
+                    });
+
+
+                });
+    </script>
+
+
+        
+                <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                    ga('create', 'UA-40413119-1', 'bootply.com');
+                    ga('send', 'pageview');
+                </script>
+                <!-- Quantcast Tag -->
+                <script type="text/javascript">
+                    var _qevents = _qevents || [];
+
+                    (function () {
+                        var elem = document.createElement('script');
+                        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+                        elem.async = true;
+                        elem.type = "text/javascript";
+                        var scpt = document.getElementsByTagName('script')[0];
+                        scpt.parentNode.insertBefore(elem, scpt);
+                    })();
+
+                    _qevents.push({
+                        qacct: "p-0cXb7ATGU9nz5"
+                    });
+                </script></td>
+        </tr>
+    </table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,54 @@
+﻿@model Sannan_EAD_Shop.Models.login
+
+@{
+    ViewBag.Title = "Admin Home Page";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<br /><br />
+<h2>Admin HomePage</h2>
+<br /><br /><br />
+<h2>Welcome @Model.username to Home Page</h2><br />
+<table>
+    
+    <tr>
+        <td><a class="navbar-brand" href="~/Admin/Index">Admin Home</a><br /><br /><br /></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        
+    <td><a class="fancybox" href="@Model.path.ToString()" title="Picture">
+        <img src="@Model.path.ToString()" height="100" width="100"/></a>
+        
+        <br /><br /><br /></td>
+    <td></td>
+
+    </tr>
+
+    <tr>
+
+    <td><a class="navbar-brand" href="~/Admin/addItem">Add Item</a><br /><br /><br /></td>
+    <td></td>
+
+    </tr>
+    <tr>
+        <td><a class="navbar-brand" href="~/Admin/deleteItem">Delete Item</a><br /><br /><br /></td>
+        <td></td>
+    </tr>
+        
+    <tr>
+
+    <td><a class="navbar-brand" href="~/Account/history">Shopping History</a><br /><br /><br /></td>
+    <td></td>
+
+    </tr>
+
+    <tr>
+
+    <td><a class="navbar-brand" href="~/Account/deleteuser">Delete User Account</a><br /><br /><br /></td>
+    <td></td>
+
+    </tr>
+
+</table>

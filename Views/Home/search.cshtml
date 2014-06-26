@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "search";
+    if (ViewBag.x != null)
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    
+}
+
+<br /><br />
+<h2>Search</h2>
+
+<br /><br />
+
+<div>
+        <label for="username" class="col-md-3">
+            Enter Name To Search:
+        </label>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Product Name" required>
+            <input type="button" id="b1" value="Search" />
+                            
+
+                    <div id="result"></div><br /> 
+
+
+
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                                <div class="thumbnail" id="result1">
+
+
+
+                                </div>
+                            </div>
+
+
+            </div>
+</div>
+
+
+
+
+            <script>
+
+                $(document).ready(function () {
+                    $('#b1').click(function () {
+
+                        var name = $('#name').val();
+
+                        var upload;
+                        $.getJSON("../Home/search1?u="+name, function (data) {
+                            $('#result1').text(" ");
+                            $('#result').text(" ");
+                            if (data != null)
+                            {
+                                $('#result1').append("<a id=\"single_1\" href=\" " + data.path + " \" title=\"Picture\"> <img  src=\" " + data.path + " \" style=\"width:260px;height:195px\" alt=\"\" /> </a>  <div class=\"caption\"> <h4> <a href=\"#\">" + data.name + " </a></h4> <h4 >" + data.price + " Rs.</h4> </div> <div class=\"form-group\"> <a class=\"btn btn-primary btn-lg btn-block\" href=\"~/Admin/addToCart?itemName=\" " + data.name + " >Add To Cart</a>");
+                            }
+                            else
+                            {
+                                $('#result').text("Result Not Found");
+                            }
+                        });
+
+                    });
+
+                });
+    </script>

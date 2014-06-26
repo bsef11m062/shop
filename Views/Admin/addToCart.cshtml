@@ -1,0 +1,87 @@
+﻿@model List<Sannan_EAD_Shop.Models.upload>
+@{
+    ViewBag.Title = "addToCart";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Add To Cart</h2>
+
+
+<div id="loginModal"  tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h1 class="text-center">CART ITEMS</h1>
+              </div>
+              <div class="modal-body">
+
+
+                  <form class="form col-md-12 center-block">
+                    <table border="1">
+                        <thead class="cartHead">
+                            <tr class="ui-borderTop ui-borderRight ui-borderLeft">
+                                <td class="article"><h4 class="h3 fssl">Product</h4></td>
+                                <td class="attribute"></td>
+                                <td class="attribute"><h4 class="h3 fssl">Name</h4></td>
+                                <td class="total"><h4 class="h3 fssl">Total price</h4></td>
+                            </tr>
+                        </thead>
+
+
+                                
+                        <tbody class="cartItems">
+		    	                
+                            @foreach(var x in Model)
+                            {
+
+                                    
+		                    <tr class="ui-border ">
+            	                <td class="article">
+                                    <a class="fancybox"
+	                                title="@x.name.ToString()" href="@x.path.ToString()"> 
+                                    <img width="75" height="109" src="@x.path.ToString()">
+                                    </a>
+
+                                 </td>
+				
+                                <td class="color">						
+                                </td>
+                                
+                                <td class="name">
+                                    	                                
+                                    <div class="itm-cartDetails">
+				                    
+		                                <h4 class="h3 fssl">
+			                                @x.name.ToString()
+		                                </h4>
+				
+	                                </div>
+
+                                </td>
+                                
+                                <td class="total fsml strong sel-cart-unit-price-ID096AT03PGAPKFAS-32589">Rs. @x.price		</td>
+                            </tr>
+
+                                }
+
+                  
+                        </table>
+                        
+                    </form>
+
+              </div>
+              <div class="modal-footer">
+                            <h3>
+                                Total:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs. @ViewBag.x
+                            </h3>
+                  <br />
+
+                    <div class="form-group">
+                        <a class="btn btn-primary btn-lg btn-block" href="~/Admin/checkout">Check Out</a>
+                    </div>
+
+              </div>
+          </div>
+          </div>
+        </div>

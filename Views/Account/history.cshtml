@@ -1,0 +1,23 @@
+﻿@model List<Sannan_EAD_Shop.Models.cart>
+@{
+    ViewBag.Title = "history";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Shopping History</h2>
+
+<br /><br /><br />
+<table border="1">
+    <tr>
+        <th>Item Name</th>
+        <th>Item Category</th>
+    </tr>
+    @foreach(var a in Model)
+    {
+    <tr>
+        <td>@a.itemName</td>
+        <td>@a.category</td>
+    </tr>
+    }
+</table>
+
