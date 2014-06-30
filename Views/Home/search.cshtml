@@ -57,7 +57,7 @@
                             $('#result').text(" ");
                             if (data != null)
                             {
-                                $('#result1').append("<a id=\"single_1\" href=\" " + data.path + " \" title=\"Picture\"> <img  src=\" " + data.path + " \" style=\"width:260px;height:195px\" alt=\"\" /> </a>  <div class=\"caption\"> <h4> <a href=\"#\">" + data.name + " </a></h4> <h4 >" + data.price + " Rs.</h4> </div> <div class=\"form-group\"> <a class=\"btn btn-primary btn-lg btn-block\" href=\"~/Admin/addToCart?itemName=\" " + data.name + " >Add To Cart</a>");
+                                $('#result1').append("<a id=\"single_1\" href=\" " + data.path + " \" title=\"Picture\"> <img  src=\" " + data.path + " \" style=\"width:260px;height:195px\" alt=\"\" /> </a>  <div class=\"caption\"> <h4> <a href=\"#\">" + data.name + " </a></h4> <h4 >" + data.price + " Rs.</h4> </div> <div class=\"form-group\"> <a class=\"btn btn-primary btn-lg btn-block\" href=\"../Admin/addToCart?itemName=" + data.name + "\" >Add To Cart</a>");
                             }
                             else
                             {
